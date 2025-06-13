@@ -33,6 +33,8 @@ export const App: React.FC = () => {
 
       return () => clearTimeout(timer); // Evita errores si el componente cambia antes de que pasen los 3s
     }
+
+    return;
   }, [error]);
 
   const handleHideError = () => {
@@ -66,7 +68,7 @@ export const App: React.FC = () => {
       <h1 className="todoapp__title">todos</h1>
 
       <div className="todoapp__content">
-        <TodosHeader />
+        <TodosHeader todos={todosFromServer} />
         {todosFromServer.length > 0 && (
           <>
             <TodoList todos={visibleTodos} />
